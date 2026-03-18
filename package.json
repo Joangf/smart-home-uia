@@ -1,0 +1,23 @@
+{
+  "name": "smart-home-uia",
+  "version": "1.0.0",
+  "scripts": {
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Trung4n/smart-home-uia.git"
+  },
+  "author": "Nguyen Trung An",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Trung4n/smart-home-uia/issues"
+  },
+  "homepage": "https://github.com/Trung4n/smart-home-uia#readme",
+  "description": "",
+  "devDependencies": {
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/config-conventional": "^20.5.0",
+    "husky": "^9.1.7"
+  }
+}
