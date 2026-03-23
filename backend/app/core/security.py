@@ -1,12 +1,12 @@
-from fastapi import Depends, HTTPException, status
+from fastapi import Depends
 from fastapi.security import HTTPBearer
 from fastapi.security.http import HTTPAuthorizationCredentials
 
 import jwt
 from app.core.config import settings
+from app.core.exceptions import *
 
 security = HTTPBearer(auto_error=False)
-
 
 async def verify_jwt_token(
     credentials: HTTPAuthorizationCredentials = Depends(security),
@@ -20,10 +20,7 @@ async def verify_jwt_token(
         }
 
     if credentials is None:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Missing Authorization header",
-        )
+        raise InvalidTokenException()
 
     token = credentials.credentials
 
@@ -38,10 +35,7 @@ async def verify_jwt_token(
         email = payload.get("email")
 
         if not user_id:
-            raise HTTPException(
-                status_code=status.HTTP_401_UNAUTHORIZED,
-                detail="Invalid token payload",
-            )
+            raise InvalidTokenException()
 
         return {
             "user_id": user_id,
@@ -49,13 +43,7 @@ async def verify_jwt_token(
         }
 
     except jwt.ExpiredSignatureError:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Token expired",
-        )
+        raise ExpiredTokenException()
 
     except jwt.InvalidTokenError:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid token",
-        )
+        raise InvalidTokenException()

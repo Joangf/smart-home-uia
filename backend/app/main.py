@@ -9,8 +9,8 @@ from app.core.exceptions import AppException
 from app.core.exception_handlers import app_exception_handler
 
 from app.api.router import api_router
-from app.services.device_service import DeviceService
-from app.repositories.device_repository import DeviceRepository
+from app.services import *
+from app.repositories import *
 from app.database.supabase import supabase
 
 from app.utils.logger import get_logger
@@ -23,6 +23,9 @@ async def lifespan(app: FastAPI):
         # --- Startup ---
         app.state.device_service = DeviceService(
             repo=DeviceRepository(db=supabase)
+        )
+        app.state.sensor_service = SensorService(
+            repo=SensorRepository(db=supabase)
         )
 
         # await mqtt_client.connect()
