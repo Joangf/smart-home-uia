@@ -1,7 +1,7 @@
 import json
 import paho.mqtt.client as mqtt
-from app.core.config import settings
 
+from app.core.config import settings
 from app.utils.logger import get_logger
 
 logger = get_logger(__name__)
@@ -19,8 +19,8 @@ def on_message(client, userdata, msg):
         payload = msg.payload.decode()
         # logger.info(f"Received: {topic} -> {payload}")
 
-        data = json.loads(payload)
-        handle_device_data(topic, data)
+        # data = json.loads(payload)
+        # handle_device_data(topic, data)
     except json.JSONDecodeError:
         logger.warning(f"Invalid JSON format on topic {msg.topic}: {msg.payload}")
     except Exception as e:
