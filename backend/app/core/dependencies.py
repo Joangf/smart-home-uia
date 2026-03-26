@@ -21,10 +21,8 @@ def get_device_control_service(request: Request) -> DeviceControlService:
 def get_notification_service(request: Request) -> NotificationService:
     return request.app.state.notification_service
 
-
 def get_automation_rule_service(request: Request) -> AutomationRuleService:
     return request.app.state.automation_rule_service
-
 
 def get_sensor_log_service(request: Request) -> SensorLogService:
     return request.app.state.sensor_log_service

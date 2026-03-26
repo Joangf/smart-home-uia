@@ -1,8 +1,8 @@
 from pydantic import BaseModel
 from typing import Optional
 
-class AlertThresholdCreate(BaseModel):
-    pass
+# class AlertThresholdCreate(BaseModel):
+#     pass
 
 class AlertThresholdUpdate(BaseModel):
     min_threshold: Optional[float]

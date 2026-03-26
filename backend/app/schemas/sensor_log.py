@@ -1,6 +1,5 @@
 from pydantic import BaseModel
 
-
 class SensorLogResponse(BaseModel):
     sensor_log_id: int
     sensor_id: int

@@ -1,13 +1,13 @@
 from pydantic import BaseModel
 from typing import Optional
-
+from app.core.enums import NotificationTypeEnum, SeverityEnum
 
 class NotificationCreate(BaseModel):
     device_id: Optional[int] = None
     title: str
     description: str
-    notification_type: str
-    severity: str
+    notification_type: NotificationTypeEnum
+    severity: SeverityEnum
     is_read: Optional[bool] = False
 
 
@@ -20,7 +20,7 @@ class NotificationResponse(BaseModel):
     device_id: Optional[int] = None
     title: str
     description: str
-    notification_type: str
-    severity: str
+    notification_type: NotificationTypeEnum
+    severity: SeverityEnum
     is_read: bool
     created_at: str

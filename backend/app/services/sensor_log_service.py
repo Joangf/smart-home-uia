@@ -1,5 +1,4 @@
 from app.repositories import SensorLogRepository
-from app.core.exceptions import *
 
 from app.utils.logger import get_logger
 
