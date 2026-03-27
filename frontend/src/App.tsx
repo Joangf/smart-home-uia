@@ -1,10 +1,10 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { AuthProvider } from './services/AuthProvider';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./services/AuthProvider";
 import Login from "./pages/Login";
-import Dashboard from './pages/Dashboard';
-import ProtectedRoute from './services/ProtectedRoute';
-import NotiProvider from './services/NotiProvider';
-import ToastNoti from './components/ui/ToastNoti';
+import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./services/ProtectedRoute";
+import NotiProvider from "./services/NotiProvider";
+import ToastNoti from "./components/ui/ToastNoti";
 export default function App() {
   return (
     <BrowserRouter>

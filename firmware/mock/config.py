@@ -11,7 +11,7 @@ class DeviceConfig:
     light_id: str = "3"
     light_location: str = "Living Room"
 
-    dht20_id: str = "4"
+    dht20_id: str = "5"
     dht20_location: str = "Bedroom"
 
     device_id: str = "yolobits"

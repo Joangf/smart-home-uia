@@ -6,7 +6,7 @@ class DeviceRepository(BaseRepository):
         super().__init__(db, "devices")
 
     def get_by_name(self, name: str) -> dict | None:
-        res = self._table().select("*").eq("device_name", name).execute()
+        res = self._execute(self._table().select("*").eq("device_name", name))
         return res.data[0] if res.data else None
 
     # def get_by_type(self, device_type: str):

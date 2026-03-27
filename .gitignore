@@ -7,3 +7,5 @@ venv/
 .idea
 .vscode
 *.log
+*.db
+__pycache__/

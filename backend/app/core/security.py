@@ -13,7 +13,7 @@ async def verify_jwt_token(
 ) -> dict:
 
     # Debug mode -> bypass auth
-    if settings.DEBUG:
+    if settings.SKIP_AUTH_FOR_TESTING and settings.ENVIRONMENT == "development":
         return {
             "user_id": "mock-user",
             "email": "nguyentrungan4993@gmail.com",

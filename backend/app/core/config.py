@@ -6,6 +6,7 @@ class Settings(BaseSettings):
     PORT: int
     ENVIRONMENT: str
     DEBUG: bool
+    SKIP_AUTH_FOR_TESTING: bool
     SUPABASE_URL: str
     SUPABASE_KEY: str
     SUPABASE_JWT_SECRET: str
