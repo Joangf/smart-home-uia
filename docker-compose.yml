@@ -1,0 +1,30 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2.0
+    container_name: mqtt_broker
+    restart: unless-stopped
+    ports:
+      - "1883:1883" # MQTT TCP  -> firmware / backend
+      - "9001:9001" # WebSocket -> frontend browser
+    volumes:
+      - ./mqtt-broker/config/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - ./mqtt-broker/data:/mosquitto/data
+      - ./mqtt-broker/log:/mosquitto/log
+  be:
+    build: ./backend
+    container_name: backend
+    restart: unless-stopped
+    environment:
+      - MQTT_BROKER=mosquitto
+      - HOST=0.0.0.0
+    env_file:
+      - ./backend/.env
+    ports:
+      - "8000:8000"
+  fe:
+    build: ./frontend
+    container_name: frontend
+    env_file:
+      - ./frontend/.env
+    ports:
+      - "5173:80"
