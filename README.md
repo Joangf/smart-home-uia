@@ -15,6 +15,12 @@ Smart Home UIA is a full-featured IoT automation platform designed to manage and
 
 The system integrates multiple components including a scalable REST API backend, responsive web frontend, MQTT-based IoT communication, and edge computing for local inference and privacy.
 
+## UI Preview
+
+The UI mockups are documented in detail in [docs/ui/README.md](docs/ui/README.md).
+
+![Dashboard screenshot](docs/ui/screenshot/dashboard.png)
+
 ## Key Features
 
 - **Device Management**: Control multiple device types including lights, fans, sensors, cameras, and servos
